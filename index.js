@@ -1,17 +1,19 @@
 var request = require('request')
-var moment = require('moment')
+var moment = require('moment-timezone')
 
 var REALTIME_TRAIN_ENDPOINT = 'http://developer.itsmarta.com/RealtimeTrain/RestServiceNextTrain/GetRealtimeArrivals'
 var REALTIME_BUS_ALL_ENDPOINT = 'http://developer.itsmarta.com/BRDRestService/RestBusRealTimeService/GetAllBus'
 var REALTIME_BUS_ROUTE_ENDPOINT = 'http://developer.itsmarta.com/BRDRestService/RestBusRealTimeService/GetBusByRoute'
 
+var TIMEZONE = 'America/New_York'
+
 function convertTrainArrival (arrival) {
   return {
     destination: arrival['DESTINATION'],
     direction: arrival['DIRECTION'],
-    event_time: moment(arrival['EVENT_TIME'], 'M/D/YYYY h:mm:ss A'),
+    event_time: moment.tz(arrival['EVENT_TIME'], 'M/D/YYYY h:mm:ss A', TIMEZONE),
     line: arrival['LINE'],
-    next_arr: moment(arrival['EVENT_TIME'], 'h:mm:ss A'),
+    next_arr: moment.tz(arrival['EVENT_TIME'], 'h:mm:ss A', TIMEZONE),
     station: arrival['STATION'],
     train_id: arrival['TRAIN_ID'],
     waiting_seconds: parseInt(arrival['WAITING_SECONDS'], 10),
@@ -27,7 +29,7 @@ function convertBusArrival (arrival) {
     direction: arrival['DIRECTION'],
     latitude: parseFloat(arrival['LATITUDE']),
     longitude: parseFloat(arrival['LONGITUDE']),
-    msg_time: moment(arrival['MSGTIME'], 'M/D/YYYY h:mm:ss A'),
+    msg_time: moment.tz(arrival['MSGTIME'], 'M/D/YYYY h:mm:ss A', TIMEZONE),
     route: arrival['ROUTE'],
     stop_id: arrival['STOPID'],
     timepoint: arrival['TIMEPOINT'],
