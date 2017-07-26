@@ -1,5 +1,6 @@
 var request = require('request')
 var moment = require('moment-timezone')
+var promisify = require('./promisify')
 
 var REALTIME_TRAIN_ENDPOINT = 'http://developer.itsmarta.com/RealtimeTrain/RestServiceNextTrain/GetRealtimeArrivals'
 var REALTIME_BUS_ALL_ENDPOINT = 'http://developer.itsmarta.com/BRDRestService/RestBusRealTimeService/GetAllBus'
@@ -38,26 +39,6 @@ function convertBusArrival (arrival) {
   }
 }
 
-function handleCallbacksOrPromises (callback, constructor) {
-  if (Promise == null) {
-    // this platform doesn't support promises, so use callbacks
-    if (callback == null) {
-      throw new Error('You did not supply a callback and your platform does not support promises.')
-    }
-    return constructor(function (res) { callback(null, res) }, function (err) { callback(err, null) })
-  }
-  var promise = new Promise(constructor)
-  // if a callback was supplied, go ahead and attach it to the promise
-  if (callback && typeof callback === 'function') {
-    promise.then(function (res) {
-      callback(null, res)
-    }).catch(function (err) {
-      callback(err, null)
-    })
-  }
-  return promise
-}
-
 function MartaApi (apiKey) {
   if (!(this instanceof MartaApi)) {
     return new MartaApi(apiKey)
@@ -66,7 +47,7 @@ function MartaApi (apiKey) {
 }
 
 MartaApi.prototype.getRealtimeTrainArrivals = function (callback) {
-  return handleCallbacksOrPromises(callback, function (resolve, reject) {
+  return promisify(callback, function (resolve, reject) {
     if (this.apiKey == null) {
       return callback(new Error('An API Key is required to use the realtime rail endpoint'), null)
     }
@@ -81,7 +62,7 @@ MartaApi.prototype.getRealtimeTrainArrivals = function (callback) {
 }
 
 MartaApi.prototype.getAllRealtimeBusArrivals = function (callback) {
-  return handleCallbacksOrPromises(callback, function (resolve, reject) {
+  return promisify(callback, function (resolve, reject) {
     request(REALTIME_BUS_ALL_ENDPOINT, function (error, response, body) {
       if (error) {
         return reject(error)
@@ -93,7 +74,7 @@ MartaApi.prototype.getAllRealtimeBusArrivals = function (callback) {
 }
 
 MartaApi.prototype.getRealtimeBusArrivalsByRoute = function (route, callback) {
-  return handleCallbacksOrPromises(callback, function (resolve, reject) {
+  return promisify(callback, function (resolve, reject) {
     if (route == null) {
       return reject(new Error('No route supplied'))
     }
