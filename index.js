@@ -36,7 +36,14 @@ function convertBusArrival (arrival) {
   };
 }
 
-module.exports.getRealtimeTrainArrivals = function (apiKey, callback) {
+function Api (apiKey) {
+  this.apiKey = apiKey;
+}
+
+Api.prototype.getRealtimeTrainArrivals = function (callback) {
+  if (this.apiKey == null) {
+    return callback(new Error('An API Key is required to use the realtime rail endpoint'), null)
+  }
   request(REALTIME_TRAIN_ENDPOINT + '?apikey=' + apiKey, function (error, response, body) {
     if (error) {
       callback(error, null);
@@ -47,7 +54,7 @@ module.exports.getRealtimeTrainArrivals = function (apiKey, callback) {
   });
 }
 
-module.exports.getAllRealtimeBusArrivals = function (callback) {
+Api.prototype.getAllRealtimeBusArrivals = function (callback) {
   request(REALTIME_BUS_ALL_ENDPOINT, function (error, response, body) {
     if (error) {
       callback(error, null);
@@ -58,7 +65,7 @@ module.exports.getAllRealtimeBusArrivals = function (callback) {
   });
 }
 
-module.exports.getRealtimeBusArrivalsByRoute = function (route, callback) {
+Api.prototype.getRealtimeBusArrivalsByRoute = function (route, callback) {
   request(REALTIME_BUS_ROUTE_ENDPOINT + '/' + route, function (error, response, body) {
     if (error) {
       callback(error, null);
@@ -68,3 +75,5 @@ module.exports.getRealtimeBusArrivalsByRoute = function (route, callback) {
     }
   });
 }
+
+module.exports = Api;
