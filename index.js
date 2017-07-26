@@ -1,5 +1,5 @@
-var request = require('request');
-var moment = require('moment');
+var request = require('request')
+var moment = require('moment')
 
 var REALTIME_TRAIN_ENDPOINT = 'http://developer.itsmarta.com/RealtimeTrain/RestServiceNextTrain/GetRealtimeArrivals'
 var REALTIME_BUS_ALL_ENDPOINT = 'http://developer.itsmarta.com/BRDRestService/RestBusRealTimeService/GetAllBus'
@@ -16,7 +16,7 @@ function convertTrainArrival (arrival) {
     train_id: arrival['TRAIN_ID'],
     waiting_seconds: parseInt(arrival['WAITING_SECONDS'], 10),
     waiting_time: arrival['WAITING_TIME']
-  };
+  }
 }
 
 function convertBusArrival (arrival) {
@@ -33,47 +33,47 @@ function convertBusArrival (arrival) {
     timepoint: arrival['TIMEPOINT'],
     trip_id: arrival['TRIPID'],
     vehicle: arrival['VEHICLE']
-  };
+  }
 }
 
 function Api (apiKey) {
-  this.apiKey = apiKey;
+  this.apiKey = apiKey
 }
 
 Api.prototype.getRealtimeTrainArrivals = function (callback) {
   if (this.apiKey == null) {
     return callback(new Error('An API Key is required to use the realtime rail endpoint'), null)
   }
-  request(REALTIME_TRAIN_ENDPOINT + '?apikey=' + apiKey, function (error, response, body) {
+  request(REALTIME_TRAIN_ENDPOINT + '?apikey=' + this.apiKey, function (error, response, body) {
     if (error) {
-      callback(error, null);
+      callback(error, null)
     } else {
-      var arrivals = JSON.parse(body).map(convertTrainArrival);
-      callback(null, arrivals);
+      var arrivals = JSON.parse(body).map(convertTrainArrival)
+      callback(null, arrivals)
     }
-  });
+  })
 }
 
 Api.prototype.getAllRealtimeBusArrivals = function (callback) {
   request(REALTIME_BUS_ALL_ENDPOINT, function (error, response, body) {
     if (error) {
-      callback(error, null);
+      callback(error, null)
     } else {
-      var arrivals = JSON.parse(body).map(convertBusArrival);
-      callback(null, arrivals);
+      var arrivals = JSON.parse(body).map(convertBusArrival)
+      callback(null, arrivals)
     }
-  });
+  })
 }
 
 Api.prototype.getRealtimeBusArrivalsByRoute = function (route, callback) {
   request(REALTIME_BUS_ROUTE_ENDPOINT + '/' + route, function (error, response, body) {
     if (error) {
-      callback(error, null);
+      callback(error, null)
     } else {
-      var arrivals = JSON.parse(body).map(convertBusArrival);
-      callback(null, arrivals);
+      var arrivals = JSON.parse(body).map(convertBusArrival)
+      callback(null, arrivals)
     }
-  });
+  })
 }
 
-module.exports = Api;
+module.exports = Api
