@@ -36,44 +36,73 @@ function convertBusArrival (arrival) {
   }
 }
 
-function Api (apiKey) {
+function handleCallbacksOrPromises (callback, constructor) {
+  if (Promise == null) {
+    // this platform doesn't support promises, so use callbacks
+    if (callback == null) {
+      throw new Error('You did not supply a callback and your platform does not support promises.')
+    }
+    return constructor(function (res) { callback(null, res) }, function (err) { callback(err, null) })
+  }
+  var promise = new Promise(constructor)
+  // if a callback was supplied, go ahead and attach it to the promise
+  if (callback && typeof callback === 'function') {
+    promise.then(function (res) {
+      callback(null, res)
+    }).catch(function (err) {
+      callback(err, null)
+    })
+  }
+  return promise
+}
+
+function MartaApi (apiKey) {
+  if (!(this instanceof MartaApi)) {
+    return new MartaApi(apiKey)
+  }
   this.apiKey = apiKey
 }
 
-Api.prototype.getRealtimeTrainArrivals = function (callback) {
-  if (this.apiKey == null) {
-    return callback(new Error('An API Key is required to use the realtime rail endpoint'), null)
-  }
-  request(REALTIME_TRAIN_ENDPOINT + '?apikey=' + this.apiKey, function (error, response, body) {
-    if (error) {
-      callback(error, null)
-    } else {
+MartaApi.prototype.getRealtimeTrainArrivals = function (callback) {
+  return handleCallbacksOrPromises(callback, function (resolve, reject) {
+    if (this.apiKey == null) {
+      return callback(new Error('An API Key is required to use the realtime rail endpoint'), null)
+    }
+    request(REALTIME_TRAIN_ENDPOINT + '?apikey=' + this.apiKey, function (error, response, body) {
+      if (error) {
+        return reject(error)
+      }
       var arrivals = JSON.parse(body).map(convertTrainArrival)
-      callback(null, arrivals)
-    }
+      resolve(arrivals)
+    })
   })
 }
 
-Api.prototype.getAllRealtimeBusArrivals = function (callback) {
-  request(REALTIME_BUS_ALL_ENDPOINT, function (error, response, body) {
-    if (error) {
-      callback(error, null)
-    } else {
+MartaApi.prototype.getAllRealtimeBusArrivals = function (callback) {
+  return handleCallbacksOrPromises(callback, function (resolve, reject) {
+    request(REALTIME_BUS_ALL_ENDPOINT, function (error, response, body) {
+      if (error) {
+        return reject(error)
+      }
       var arrivals = JSON.parse(body).map(convertBusArrival)
-      callback(null, arrivals)
-    }
+      resolve(arrivals)
+    })
   })
 }
 
-Api.prototype.getRealtimeBusArrivalsByRoute = function (route, callback) {
-  request(REALTIME_BUS_ROUTE_ENDPOINT + '/' + route, function (error, response, body) {
-    if (error) {
-      callback(error, null)
-    } else {
+MartaApi.prototype.getRealtimeBusArrivalsByRoute = function (route, callback) {
+  return handleCallbacksOrPromises(callback, function (resolve, reject) {
+    if (route == null) {
+      return reject(new Error('No route supplied'))
+    }
+    request(REALTIME_BUS_ROUTE_ENDPOINT + '/' + route, function (error, response, body) {
+      if (error) {
+        return reject(error)
+      }
       var arrivals = JSON.parse(body).map(convertBusArrival)
-      callback(null, arrivals)
-    }
+      resolve(arrivals)
+    })
   })
 }
 
-module.exports = Api
+module.exports = MartaApi
