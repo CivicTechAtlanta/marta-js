@@ -62,3 +62,9 @@ and get more documentation on the data from the [MARTA Developer Resources site]
   // bus arrivals can also be requested only for a particular route:
   marta.getRealtimeBusArrivalsByRoute(21, function (error, arrivals) { ... })
 ```
+
+
+### License
+
+[MIT](LICENSE)
+

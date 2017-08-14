@@ -6,12 +6,21 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "yall@codeforatlanta.org",
   "license": "MIT",
   "dependencies": {
     "moment": "^2.18.1",
     "moment-timezone": "^0.5.13",
     "request": "^2.81.0",
     "standard": "^10.0.2"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codeforatlanta/marta-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/codeforatlanta/marta-js/issues"
+  },
+  "homepage": "https://github.com/codeforatlanta/marta-js#readme"
 }
