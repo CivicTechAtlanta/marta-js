@@ -1,9 +1,59 @@
 
-# TODO intro
+# Introduction
 
+An API key is only required for the realtime Rail API. The realtime Bus API does not require an API key. You can request an API key from the [Marta Key Registration site](http://www.itsmarta.com/developer-reg-rtt.aspx).
 
-An API key is only required for the realtime Rail API. You can request an API key
-and get more documentation on the data from the [MARTA Developer Resources site](http://www.itsmarta.com/app-developer-resources.aspx).
+Get additional documentation on the data from the [MARTA Developer Resources site](http://www.itsmarta.com/app-developer-resources.aspx).
+
+# Field Definitions
+
+## Bus
+* adherence
+Identifies the current time of arrival compared to scheduled arrival time. Positive number indicates bus is running x minutes late. Negative number indicates bus is running x minutes early.
+
+* direction
+Direction the bus is headed to (i.e. Northbound).
+
+* latitude
+Current latitude of Bus.
+
+* longitude
+Current longitude of Bus.
+
+* msg_time
+Time of last update?
+
+* route
+Name of the bus route (i.e. 12).
+
+## Train
+* destination
+Destination of train (i.e. Airport)
+
+* direction
+Direction of train (i.e. S)
+
+* event_time
+Time of last update?
+
+* line
+Name of the train line (i.e. GOLD)
+
+* next_arr
+Time of the next train arrival.
+
+* station
+Name of the station (i.e. AIRPORT STATION)
+
+* train_id
+Train identifier number (i.e. 303506)
+
+* waiting_seconds
+?
+
+* waiting_time
+?
+
 
 # Usage
 
@@ -67,4 +117,3 @@ and get more documentation on the data from the [MARTA Developer Resources site]
 ### License
 
 [MIT](LICENSE)
-
