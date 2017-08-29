@@ -13,7 +13,7 @@ function convertTrainArrival (arrival) {
     direction: arrival['DIRECTION'],
     event_time: moment.tz(arrival['EVENT_TIME'], 'M/D/YYYY h:mm:ss A', TIMEZONE),
     line: arrival['LINE'],
-    next_arr: moment.tz(arrival['EVENT_TIME'], 'h:mm:ss A', TIMEZONE),
+    next_arr: moment.tz(arrival['NEXT_ARR'], 'h:mm:ss A', TIMEZONE),
     station: arrival['STATION'],
     train_id: arrival['TRAIN_ID'],
     waiting_seconds: parseInt(arrival['WAITING_SECONDS'], 10),
