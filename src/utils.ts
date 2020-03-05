@@ -30,8 +30,12 @@ function convertBusDirection (apiDirection: ApiBusDirection): Direction {
 }
 
 export function convertApiBusArrival (res: ApiBusArrivalResponse): BusArrival {
+  // Note: from the API, a positive number indicates bus is running late, and a
+  // a negative number indicates bus is running early. I think this is opposite of what
+  // is expected so we reverse it here.
+  const adheranceMinutes = -1 * parseInt(res.ADHERENCE, 10)
   return {
-    adherence: moment.duration(parseInt(res.ADHERENCE, 10), 'minutes'), // TODO: verify this is minutes
+    adherence: moment.duration(adheranceMinutes, 'minutes'),
     blockId: res.BLOCKID,
     blockAbbriviation: res.BLOCK_ABBR,
     direction: convertBusDirection(res.DIRECTION),

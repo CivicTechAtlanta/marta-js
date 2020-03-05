@@ -69,7 +69,43 @@ For example:
 
 ## Methods
 
-### `getRealtimeTrainArrivals`
+### Realtime Rail
+
+#### Definition
+
+```typescript
+type RailArrival = {
+  destination: string
+  direction: 'North' | 'South' | 'East' | 'West'
+  eventTime: Moment
+  line: 'RED' | 'GOLD' | 'GREEN' | 'BLUE'
+  nextArrival: Moment
+  station: Station
+  trainId: string
+  waitingTimeSeconds: number
+  waitingTime: Moment.Duration
+  waitingState: 'Boarding' | 'Arriving' | string
+}
+```
+
+#### Example
+
+```js
+{
+  line: 'GOLD', // which train line
+  destination: 'Airport', // Name of the train line
+  direction: 'South', // Direction of the train line
+  eventTime: moment("2017-07-25T21:45:42.000"), // Time at which this update was received
+  station: 'AIRPORT STATION', // Name of the station the times are relative to
+  nextArrival: moment("2017-07-25T19:45:42.000"), // Time the train will arrive at the station
+  trainId: '303506', // A unique identifier for the train
+  waitingTimeSeconds: 1608, // how long in seconds until the train arrives at the station
+  waitingTime: moment.duration(1608, 'seconds'), // the waiting time, but as a duration object
+  waitingState: '26 min' // a string representing the waiting time. Could be also be "Boarding" or "Arriving"
+}
+```
+
+#### `getRealtimeTrainArrivals`
 
 This is the same data that powers the realtime train time monitors in the station. For all stations,
 it will tell you how long until the next several trains arrive.
@@ -79,38 +115,11 @@ const MartaApi = require('marta-js').MartaApi
 const marta = new MartaApi('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx')
 
 marta.getRealtimeTrainArrivals(function (error, arrivals) {
-  /*
-    Definition:
-    type RailArrival = {
-      destination: string
-      direction: 'North' | 'South' | 'East' | 'West'
-      eventTime: Moment
-      line: 'RED' | 'GOLD' | 'GREEN' | 'BLUE'
-      nextArrival: Moment
-      station: Station
-      trainId: string
-      waitingTimeSeconds: number
-      waitingTime: Moment.Duration
-      waitingState: 'Boarding' | 'Arriving' | string
-    }
-    Example:
-    {
-      destination: 'Airport',
-      direction: 'South',
-      eventTime: moment("2017-07-25T21:45:42.000"),
-      line: 'GOLD',
-      nextArrival: moment("2017-07-25T19:45:42.000"),
-      station: 'AIRPORT STATION',
-      trainId: '303506',
-      waitingTimeSeconds: 1608,
-      waitingTime: moment.duration(1608, 'seconds'),
-      waitingState: '26 min'
-    }
-  */
+  // ...
 })
 ```
 
-### `getRealtimeRailArrivalsForStation`
+#### `getRealtimeRailArrivalsForStation`
 
 This is the same as `getRealtimeTrainArrivals`, but filtered to only the specified station.
 
@@ -123,51 +132,63 @@ marta.getRealtimeRailArrivalsForStation('FIVE POINTS STATION', function (error, 
 })
 ```
 
-### `getAllRealtimeBusArrivals`
+### Realtime Bus
+
+#### Definition
+
+```typescript
+type BusArrival = {
+  adherence: Moment.Duration
+  blockId: string
+  blockAbbriviation: string
+  direction: 'North' | 'South' | 'East' | 'West'
+  latitude: number
+  longitude: number
+  eventTime: Moment
+  route: BusRoute
+  stopId: string
+  timepoint: string
+  tripId: string
+  busId: string
+}
+```
+
+#### Example
+
+```js
+{
+  route: '12', // the route the bus is on
+  direction: 'North', // the direction the bus is headed
+  tripId: '5572278',
+  busId: '1453', // a unique id for the bus
+  stopId: '901718', // a unique id of the next stop
+  // the current location of the bus
+  latitude: 33.8206244,
+  longitude: -84.4163082,
+  eventTime: moment("2017-07-25T21:46:12.000"), // Time at which this update was received
+  // Identifies the current time of arrival compared to scheduled arrival time.
+  // Negative number indicates bus is running late. Note: this is opposite of what
+  // comes back from the API, because I think it makes more sense.
+  adherence: moment.duration(-2, 'minutes'),
+  blockId: '82', // TODO: ???
+  blockAbbriviation: '12-10',  // TODO: ???
+  timepoint: 'Howell Mill Rd at Trabert Ave NW',  // TODO: ???
+}
+```
+
+#### `getAllRealtimeBusArrivals`
 
 This API returns the lastest location update from each bus, it's route, and if it is on-time.
-"Adherance" is how well it is adhering to the schedule. It's a measure of lateness (early is negative).
 
 ```js
 const MartaApi = require('marta-js')
 const marta = new MartaApi()
 marta.getAllRealtimeBusArrivals(function (error, arrivals) {
-  /*
-    Definition:
-    type BusArrival = {
-      adherence: Moment.Duration
-      blockId: string
-      blockAbbriviation: string
-      direction: 'North' | 'South' | 'East' | 'West'
-      latitude: number
-      longitude: number
-      eventTime: Moment
-      route: BusRoute
-      stopId: string
-      timepoint: string
-      tripId: string
-      busId: string
-    }
-    Example:
-    {
-      adherence: moment.duration(-2, 'minutes'),
-      blockId: '82',
-      blockAbbriviation: '12-10',
-      direction: 'North',
-      latitude: 33.8206244,
-      longitude: -84.4163082,
-      eventTime: moment("2017-07-25T21:46:12.000"),
-      route: '12',
-      stopId: '901718',
-      timepoint: 'Howell Mill Rd at Trabert Ave NW',
-      tripId: '5572278',
-      busId: '1453'
-    }
-  */
+  // ...
 })
 ```
 
-### `getAllRealtimeBusArrivalsByRoute`
+#### `getAllRealtimeBusArrivalsByRoute`
 
 This is the same as `getAllRealtimeBusArrivals`, but filtered to only the specified route.
 
@@ -178,3 +199,7 @@ marta.getAllRealtimeBusArrivalsByRoute('12', function (error, arrivals) {
   // ...
 })
 ```
+
+## License
+
+[MIT](LICENSE)

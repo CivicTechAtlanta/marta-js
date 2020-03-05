@@ -11,7 +11,7 @@
     "lint": "eslint --ext .js,.ts .",
     "lintfix": "eslint --ext .js,.ts --fix ."
   },
-  "author": "charles@rabidaudio.com",
+  "author": "yall@codeforatlanta.org",
   "license": "MIT",
   "mocha": {
     "reporter": "dot",
@@ -68,5 +68,13 @@
     "source-map-support": "^0.5.16",
     "ts-node": "^8.6.2",
     "typescript": "^3.8.3"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codeforatlanta/marta-js.git"
+  },
+  "bugs": {
+    "url": "https://github.com/codeforatlanta/marta-js/issues"
+  },
+  "homepage": "https://github.com/codeforatlanta/marta-js#readme"
 }

@@ -68,8 +68,12 @@ function convertBusDirection(apiDirection) {
     }
 }
 function convertApiBusArrival(res) {
+    // Note: from the API, a positive number indicates bus is running late, and a
+    // a negative number indicates bus is running early. I think this is opposite of what
+    // is expected so we reverse it here.
+    var adheranceMinutes = -1 * parseInt(res.ADHERENCE, 10);
     return {
-        adherence: moment_timezone_1.default.duration(parseInt(res.ADHERENCE, 10), 'minutes'),
+        adherence: moment_timezone_1.default.duration(adheranceMinutes, 'minutes'),
         blockId: res.BLOCKID,
         blockAbbriviation: res.BLOCK_ABBR,
         direction: convertBusDirection(res.DIRECTION),

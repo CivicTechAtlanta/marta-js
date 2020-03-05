@@ -108,7 +108,8 @@ describe('MartaApi', () => {
       expect(results[0].tripId).to.equal('7018640')
       expect(results[0].busId).to.equal('7018')
 
-      expect(results[3].adherence.toISOString()).to.equal('-PT4M')
+      // positive 4 minutes means its 4 minutes ahead
+      expect(results[3].adherence.toISOString()).to.equal('PT4M')
     })
 
     it('should support callback form', (done) => {
