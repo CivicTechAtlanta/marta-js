@@ -1,17 +1,17 @@
 import { Moment, Duration, Direction } from './CommonTypes'
 
 export type BusArrival = {
-  adherence: Duration,
-  blockId: string,
-  blockAbbriviation: string,
-  direction: Direction,
-  latitude: number,
-  longitude: number,
-  eventTime: Moment,
-  route: BusRoute,
-  stopId: string,
-  timepoint: string,
-  tripId: string,
+  adherence: Duration
+  blockId: string
+  blockAbbriviation: string
+  direction: Direction
+  latitude: number
+  longitude: number
+  eventTime: Moment
+  route: BusRoute
+  stopId: string
+  timepoint: string
+  tripId: string
   busId: string
 }
 

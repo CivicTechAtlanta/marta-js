@@ -1,14 +1,17 @@
 # Marta.js
 
-This library is a wrapper for the [MARTA Realtime RESTful APIs](https://www.itsmarta.com/app-developer-resources.aspx).
+This library is a wrapper for the
+[MARTA Realtime RESTful APIs](https://www.itsmarta.com/app-developer-resources.aspx).
 
-Because the documentation of the upstream APIs is limited, this library alters some naming conventions from what the API
+Because the documentation of the upstream APIs is limited, this library alters some naming
+conventions from what the API
 returns in an effort to make the data easier to understand.
 
-It uses [moment](https://momentjs.com/docs) for times and durations, and it's written in TypeScript to aid in defining data structures.
+It uses [moment](https://momentjs.com/docs) for times and durations, and it's written in TypeScript
+to aid in defining data structures.
 
-You can [request an API key from MARTA](https://www.itsmarta.com/developer-reg-rtt.aspx) to use for the Realtime Rail data. The Realtime
-Bus data does not require an API key.
+You can [request an API key from MARTA](https://www.itsmarta.com/developer-reg-rtt.aspx) to use for
+the Realtime Rail data. The Realtime Bus data does not require an API key.
 
 ## Usage
 
@@ -38,8 +41,10 @@ marta.getRealtimeTrainArrivals(function (error, arrival) {
 })
 ```
 
-This library depends on a native ES6 Promise implementation to be [supported](http://caniuse.com/promises).
-If your environment doesn't support ES6 Promises, for example older browsers, you can [polyfill](https://github.com/jakearchibald/es6-promise).
+This library depends on a native ES6 Promise implementation to be
+[supported](http://caniuse.com/promises). If your environment doesn't support ES6 Promises,
+for example older browsers, you can [polyfill](https://github.com/jakearchibald/es6-promise).
+
 For example:
 
 ```html
@@ -52,8 +57,8 @@ For example:
 
 ### `getRealtimeTrainArrivals`
 
-This is the same data that powers the realtime train time monitors in the station. For all stations, it will tell you how long
-until the next several trains arrive.
+This is the same data that powers the realtime train time monitors in the station. For all stations,
+it will tell you how long until the next several trains arrive.
 
 ```js
 const MartaApi = require('marta-js')
@@ -106,9 +111,8 @@ marta.getRealtimeRailArrivalsForStation('FIVE POINTS STATION', function (error, 
 
 ### `getAllRealtimeBusArrivals`
 
-This API returns the lastest location update from each bus, it's route, and if it is on-time. "adherance"
-is how well it is ahering to the schedule. It's a measure of lateness (early is negative).
-
+This API returns the lastest location update from each bus, it's route, and if it is on-time.
+"Adherance" is how well it is adhering to the schedule. It's a measure of lateness (early is negative).
 
 ```js
 const MartaApi = require('marta-js')
@@ -128,7 +132,7 @@ marta.getAllRealtimeBusArrivals(function (error, arrivals) {
       stopId: string
       timepoint: string
       tripId: string
-      busId: strin
+      busId: string
     }
     Example:
     {
