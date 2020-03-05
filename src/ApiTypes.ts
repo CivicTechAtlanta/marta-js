@@ -16,7 +16,7 @@ export type ApiBusDirection = 'Northbound' | 'Southbound' | 'Eastbound' | 'Westb
     "VEHICLE": "1410"
   }
 */
-export type ApiBusArrivalResponse = {
+export interface ApiBusArrivalResponse {
   ADHERENCE: string
   BLOCKID: string
   BLOCK_ABBR: string
@@ -46,7 +46,7 @@ export type ApiRailDirection = 'N' | 'S' | 'E' | 'W'
     "WAITING_TIME": "Boarding" // or "Arriving" or  "3 min"
   }
 */
-export type ApiRailArrivalResponse = {
+export interface ApiRailArrivalResponse {
   DESTINATION: string
   DIRECTION: ApiRailDirection
   EVENT_TIME: string

@@ -5,9 +5,9 @@ import { ApiBusDirection, ApiBusArrivalResponse, ApiRailDirection, ApiRailArriva
 import { BusArrival, BusRoute } from './BusTypes'
 import { RailArrival, Station } from './RailTypes'
 
-export function applyCallback <T> (callback: Callback<T> | undefined, method: () => Promise<T>): Promise<T> {
+export async function applyCallback <T> (callback: Callback<T> | undefined, method: () => Promise<T>): Promise<T> {
   const promise = method()
-  if (callback) {
+  if (typeof callback !== 'undefined') {
     promise.then(res => callback(null, res)).catch(err => callback(err, null))
   }
   return promise

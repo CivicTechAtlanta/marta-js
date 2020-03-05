@@ -3,7 +3,7 @@ import { Direction, Moment, Duration } from './CommonTypes'
 // https://itsmarta.com/railline-schedules.aspx
 export type Line = 'RED' | 'GOLD' | 'GREEN' | 'BLUE'
 
-export type RailArrival = {
+export interface RailArrival {
   destination: string
   direction: Direction
   eventTime: Moment
