@@ -1,0 +1,94 @@
+{
+  "a1c91043453d77373ee7b70adb09c0d9": {
+    "meta": {
+      "url": "http://developer.itsmarta.com/BRDRestService/RestBusRealTimeService/GetBusByRoute/21",
+      "method": "get",
+      "headers": {
+        "Accept": "application/json, text/plain, */*",
+        "User-Agent": "axios-vcr"
+      }
+    },
+    "fixture": true,
+    "originalResponseData": {
+      "status": 200,
+      "statusText": "OK",
+      "headers": {
+        "cache-control": "private",
+        "content-length": "1078",
+        "content-type": "application/json; charset=utf-8",
+        "server": "Microsoft-IIS/7.5",
+        "x-aspnet-version": "4.0.30319",
+        "x-powered-by": "ASP.NET",
+        "x-frame-options": "SAMEORIGIN",
+        "date": "Thu, 05 Mar 2020 16:55:28 GMT",
+        "connection": "close"
+      },
+      "data": [
+        {
+          "ADHERENCE": "-8",
+          "BLOCKID": "270",
+          "BLOCK_ABBR": "21-2",
+          "DIRECTION": "Eastbound",
+          "LATITUDE": "33.7476075",
+          "LONGITUDE": "-84.3903934",
+          "MSGTIME": "3/5/2020 11:49:20 AM",
+          "ROUTE": "21",
+          "STOPID": "102274",
+          "TIMEPOINT": "Alabama St & Forsyth St",
+          "TRIPID": "7032503",
+          "VEHICLE": "1514"
+        },
+        {
+          "ADHERENCE": "2",
+          "BLOCKID": "271",
+          "BLOCK_ABBR": "21-3",
+          "DIRECTION": "Westbound",
+          "LATITUDE": "33.7536441",
+          "LONGITUDE": "-84.3921937",
+          "MSGTIME": "3/5/2020 11:50:37 AM",
+          "ROUTE": "21",
+          "STOPID": "102274",
+          "TIMEPOINT": "Alabama St & Forsyth St",
+          "TRIPID": "7041419",
+          "VEHICLE": "1518"
+        },
+        {
+          "ADHERENCE": "-2",
+          "BLOCKID": "272",
+          "BLOCK_ABBR": "21-4",
+          "DIRECTION": "Eastbound",
+          "LATITUDE": "33.7582406",
+          "LONGITUDE": "-84.26306",
+          "MSGTIME": "3/5/2020 11:51:18 AM",
+          "ROUTE": "21",
+          "STOPID": "107346",
+          "TIMEPOINT": "Memorial Dr & Columbia Dr",
+          "TRIPID": "6995607",
+          "VEHICLE": "1416"
+        },
+        {
+          "ADHERENCE": "-2",
+          "BLOCKID": "269",
+          "BLOCK_ABBR": "21-1",
+          "DIRECTION": "Westbound",
+          "LATITUDE": "33.7529546",
+          "LONGITUDE": "-84.2708569",
+          "MSGTIME": "3/5/2020 11:54:36 AM",
+          "ROUTE": "21",
+          "STOPID": "107294",
+          "TIMEPOINT": "Memorial Dr & Columbia Dr",
+          "TRIPID": "6998911",
+          "VEHICLE": "1550"
+        }
+      ],
+      "config": {
+        "url": "http://developer.itsmarta.com/BRDRestService/RestBusRealTimeService/GetBusByRoute/21",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "User-Agent": "axios-vcr"
+        }
+      }
+    }
+  }
+}

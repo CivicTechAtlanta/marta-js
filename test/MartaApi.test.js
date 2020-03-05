@@ -36,10 +36,118 @@ describe('MartaApi', () => {
 
     it('should support callback form', (done) => {
       marta.getRealtimeRailArrivals((err, results) => {
-        expect(err).to.equal(null)
-        expect(results).not.to.equal(null)
-        expect(results.length).to.equal(51)
-        done()
+        try {
+          expect(err).to.equal(null)
+          expect(results).not.to.equal(null)
+          expect(results.length).to.equal(51)
+          done()
+        } catch (e) {
+          done(e)
+        }
+      })
+    })
+
+    it('should require an api key', () => {
+      expect(new MartaApi().getAllRealtimeBusArrivals()).to.eventually.throw(/API Key is required/)
+    })
+  })
+
+  describe('getRealtimeRailArrivalsForStation', () => {
+    beforeEach(() => VCR.mountCassette('./test/fixtures/getRealtimeRailArrivals.json'))
+    afterEach(() => VCR.ejectCassette('./test/fixtures/getRealtimeRailArrivals.json'))
+
+    it('should support promise form', async () => {
+      const results = await marta.getRealtimeRailArrivalsForStation('MIDTOWN STATION')
+      expect(results.length).to.equal(2)
+
+      for (const result of results) {
+        expect(result.station).to.equal('MIDTOWN STATION')
+      }
+
+      expect(results[0].destination).to.equal('Doraville')
+      expect(results[0].direction).to.equal('North')
+      expect(results[0].line).to.equal('GOLD')
+    })
+
+    it('should support callback form', (done) => {
+      marta.getRealtimeRailArrivalsForStation('MIDTOWN STATION', (err, results) => {
+        try {
+          expect(err).to.equal(null)
+          expect(results).not.to.equal(null)
+          expect(results.length).to.equal(2)
+          done()
+        } catch (e) {
+          done(e)
+        }
+      })
+    })
+
+    it('should require an api key', () => {
+      expect(new MartaApi().getAllRealtimeBusArrivals()).to.eventually.throw(/API Key is required/)
+    })
+  })
+
+  describe('getAllRealtimeBusArrivals', () => {
+    beforeEach(() => VCR.mountCassette('./test/fixtures/getAllRealtimeBusArrivals.json'))
+    afterEach(() => VCR.ejectCassette('./test/fixtures/getAllRealtimeBusArrivals.json'))
+
+    it('should support promise form', async () => {
+      const results = await marta.getAllRealtimeBusArrivals()
+      expect(results.length).to.equal(277)
+
+      expect(results[0].adherence.asSeconds()).to.equal(0)
+      expect(results[0].blockId).to.equal('124')
+      expect(results[0].blockAbbriviation).to.equal('141-4')
+      expect(results[0].direction).to.equal('South')
+      expect(results[0].latitude).to.equal(33.9453545)
+      expect(results[0].longitude).to.equal(-84.357408)
+      expect(results[0].eventTime.toJSON()).to.equal('2020-03-05T16:14:00.000Z')
+      expect(results[0].route).to.equal('141')
+      expect(results[0].stopId).to.equal('902649')
+      expect(results[0].timepoint).to.equal('Deerfield Pkwy & Webb Rd')
+      expect(results[0].tripId).to.equal('7018640')
+      expect(results[0].busId).to.equal('7018')
+
+      expect(results[3].adherence.toISOString()).to.equal('-PT4M')
+    })
+
+    it('should support callback form', (done) => {
+      marta.getAllRealtimeBusArrivals((err, results) => {
+        try {
+          expect(err).to.equal(null)
+          expect(results).not.to.equal(null)
+          expect(results.length).to.equal(277)
+          done()
+        } catch (e) {
+          done(e)
+        }
+      })
+    })
+  })
+
+  describe('getAllRealtimeBusArrivalsByRoute', () => {
+    beforeEach(() => VCR.mountCassette('./test/fixtures/getAllRealtimeBusArrivalsByRoute.json'))
+    afterEach(() => VCR.ejectCassette('./test/fixtures/getAllRealtimeBusArrivalsByRoute.json'))
+
+    it('should support promise form', async () => {
+      const results = await marta.getAllRealtimeBusArrivalsByRoute('21')
+      expect(results.length).to.equal(4)
+
+      for (const result of results) {
+        expect(result.route).to.equal('21')
+      }
+    })
+
+    it('should support callback form', (done) => {
+      marta.getAllRealtimeBusArrivalsByRoute('21', (err, results) => {
+        try {
+          expect(err).to.equal(null)
+          expect(results).not.to.equal(null)
+          expect(results.length).to.equal(4)
+          done()
+        } catch (e) {
+          done(e)
+        }
       })
     })
   })

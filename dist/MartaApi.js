@@ -132,10 +132,12 @@ var MartaApi = /** @class */ (function () {
     };
     MartaApi.prototype.request = function (url) {
         return __awaiter(this, void 0, void 0, function () {
-            var res;
+            var params, res;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, axios_1.default.get(url, { params: { apikey: this.apiKey } })];
+                    case 0:
+                        params = this.apiKey === null ? {} : { apikey: this.apiKey };
+                        return [4 /*yield*/, axios_1.default.get(url, { params: params })];
                     case 1:
                         res = _a.sent();
                         return [2 /*return*/, res.data];

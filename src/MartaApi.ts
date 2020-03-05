@@ -48,7 +48,8 @@ export class MartaApi {
   }
 
   private async request<T> (url: string): Promise<T> {
-    const res = await axios.get(url, { params: { apikey: this.apiKey } })
+    const params = this.apiKey === null ? {} : { apikey: this.apiKey }
+    const res = await axios.get(url, { params })
     return res.data
   }
 }
