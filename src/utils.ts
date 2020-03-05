@@ -1,9 +1,9 @@
 import moment from 'moment-timezone'
 
 import { Callback, Direction, Moment } from './CommonTypes'
-import { ApiBusDirection, ApiBusArivalResponse, ApiRailDirection, ApiRailArivalResponse } from './ApiTypes'
-import { BusArival, BusRoute } from './BusTypes'
-import { RailArival, Station } from './RailTypes'
+import { ApiBusDirection, ApiBusArrivalResponse, ApiRailDirection, ApiRailArrivalResponse } from './ApiTypes'
+import { BusArrival, BusRoute } from './BusTypes'
+import { RailArrival, Station } from './RailTypes'
 
 export function applyCallback <T> (callback: Callback<T> | undefined, method: () => Promise<T>): Promise<T> {
   const promise = method()
@@ -29,9 +29,9 @@ function convertBusDirection (apiDirection: ApiBusDirection): Direction {
   }
 }
 
-export function convertApiBusArival (res: ApiBusArivalResponse): BusArival {
+export function convertApiBusArrival (res: ApiBusArrivalResponse): BusArrival {
   return {
-    adherence: moment.duration(parseInt(res.ADHERENCE, 10), 'seconds'),
+    adherence: moment.duration(parseInt(res.ADHERENCE, 10), 'minutes'), // TODO: verify this is minutes
     blockId: res.BLOCKID,
     blockAbbriviation: res.BLOCK_ABBR,
     direction: convertBusDirection(res.DIRECTION),
@@ -55,11 +55,11 @@ function convertRailDirection (apiDirection: ApiRailDirection): Direction {
   }
 }
 
-// arival time comes in just a time, like "09:44:46 PM"
+// arrival time comes in just a time, like "09:44:46 PM"
 // to convert to a moment, we need to find the next point
 // in the future where it is that time (not necessarily today,
 // since times roll over at midnight)
-function convertNextArivalTime (arrivalTime: string): Moment {
+function convertNextArrivalTime (arrivalTime: string): Moment {
   const now = moment.tz(TIMEZONE)
   const yesterdayDate = now.subtract(1, 'day').format('M/D/YYYY')
   const todayDate = now.format('M/D/YYYY')
@@ -79,14 +79,14 @@ function convertNextArivalTime (arrivalTime: string): Moment {
   }
 }
 
-export function convertApiRailArival (res: ApiRailArrivalResponse): RailArrival {
+export function convertApiRailArrival (res: ApiRailArrivalResponse): RailArrival {
   const waitingTimeSeconds = parseInt(res.WAITING_SECONDS, 32)
   return {
     destination: res.DESTINATION,
     direction: convertRailDirection(res.DIRECTION),
     eventTime: convertApiDateTimeFormat(res.EVENT_TIME),
     line: res.LINE,
-    nextArrival: convertNextArivalTime(res.NEXT_ARR),
+    nextArrival: convertNextArrivalTime(res.NEXT_ARR),
     station: res.STATION as Station,
     trainId: res.TRAIN_ID,
     waitingTimeSeconds,

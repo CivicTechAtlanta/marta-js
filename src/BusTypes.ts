@@ -1,6 +1,6 @@
 import { Moment, Duration, Direction } from './CommonTypes'
 
-export type BusArival = {
+export type BusArrival = {
   adherence: Duration,
   blockId: string,
   blockAbbriviation: string,
