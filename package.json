@@ -4,28 +4,66 @@
   "description": "An SDK for the MARTA realtime APIs",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "npx eslint --ext .js,.ts .",
-    "lintfix": "npx eslint --ext --fix .js,.ts ."
+    "test": "nyc mocha",
+    "lint": "eslint --ext .js,.ts .",
+    "lintfix": "eslint --ext .js,.ts --fix ."
   },
   "author": "charles@rabidaudio.com",
   "license": "MIT",
+  "mocha": {
+    "reporter": "dot",
+    "ui": "bdd",
+    "recursive": true,
+    "exit": true,
+    "asyncOnly": true,
+    "extension": [
+      "js",
+      "ts"
+    ],
+    "require": [
+      "ts-node/register"
+    ],
+    "file": [
+      "test/prepare.js"
+    ]
+  },
+  "nyc": {
+    "extends": "@istanbuljs/nyc-config-typescript",
+    "all": true,
+    "include": [
+      "{src,test}/**"
+    ],
+    "reporter": [
+      "text",
+      "text-summary"
+    ],
+    "check-coverage": true
+  },
   "dependencies": {
     "axios": "^0.19.2",
     "moment": "^2.24.0",
     "moment-timezone": "^0.5.28"
   },
   "devDependencies": {
+    "@istanbuljs/nyc-config-typescript": "^1.0.1",
+    "@types/chai": "^4.2.10",
     "@types/es6-promise": "^3.3.0",
+    "@types/mocha": "^7.0.2",
     "@types/moment": "^2.13.0",
     "@types/moment-timezone": "^0.5.12",
     "@typescript-eslint/eslint-plugin": "^2.22.0",
+    "chai": "^4.2.0",
+    "chai-as-promised": "^7.1.1",
     "eslint": "^6.8.0",
     "eslint-config-standard-with-typescript": "^14.0.0",
     "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-node": "^9.2.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
+    "mocha": "^7.1.0",
+    "mockdate": "^2.0.5",
+    "nyc": "^15.0.0",
+    "ts-node": "^8.6.2",
     "typescript": "^3.8.3"
   }
 }

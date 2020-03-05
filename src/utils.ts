@@ -16,7 +16,7 @@ export async function applyCallback <T> (callback: Callback<T> | undefined, meth
 const TIMEZONE = 'America/New_York'
 const TIME_FORMAT = 'M/D/YYYY h:mm:ss A'
 
-function convertApiDateTimeFormat (formattedTime: string): Moment {
+export function convertApiDateTimeFormat (formattedTime: string): Moment {
   return moment.tz(formattedTime, TIME_FORMAT, TIMEZONE)
 }
 
@@ -59,11 +59,11 @@ function convertRailDirection (apiDirection: ApiRailDirection): Direction {
 // to convert to a moment, we need to find the next point
 // in the future where it is that time (not necessarily today,
 // since times roll over at midnight)
-function convertNextArrivalTime (arrivalTime: string): Moment {
+export function convertNextArrivalTime (arrivalTime: string): Moment {
   const now = moment.tz(TIMEZONE)
-  const yesterdayDate = now.subtract(1, 'day').format('M/D/YYYY')
+  const yesterdayDate = now.clone().subtract(1, 'day').format('M/D/YYYY')
   const todayDate = now.format('M/D/YYYY')
-  const tomrrowDate = now.add(1, 'day').format('M/D/YYYY')
+  const tomrrowDate = now.clone().add(1, 'day').format('M/D/YYYY')
   const yesterdayAtTime = convertApiDateTimeFormat(`${yesterdayDate} ${arrivalTime}`)
   const todayAtTime = convertApiDateTimeFormat(`${todayDate} ${arrivalTime}`)
   const tomorrowAtTime = convertApiDateTimeFormat(`${tomrrowDate} ${arrivalTime}`)

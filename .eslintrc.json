@@ -2,5 +2,13 @@
   "extends": "standard-with-typescript",
   "parserOptions": {
     "project": "./tsconfig.json"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["test/**/*.test.{ts,js}"],
+      "rules": {
+        "@typescript-eslint/require-await": "off"
+      }
+    }
+  ]
 }
