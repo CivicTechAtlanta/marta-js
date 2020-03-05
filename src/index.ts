@@ -1,6 +1,4 @@
-import MartaApi from './MartaApi'
-
-export default MartaApi
+export * from './MartaApi'
 export * from './CommonTypes'
 export * from './BusTypes'
 export * from './RailTypes'

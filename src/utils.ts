@@ -80,7 +80,7 @@ export function convertNextArrivalTime (arrivalTime: string): Moment {
 }
 
 export function convertApiRailArrival (res: ApiRailArrivalResponse): RailArrival {
-  const waitingTimeSeconds = parseInt(res.WAITING_SECONDS, 32)
+  const waitingTimeSeconds = parseInt(res.WAITING_SECONDS, 10)
   return {
     destination: res.DESTINATION,
     direction: convertRailDirection(res.DIRECTION),

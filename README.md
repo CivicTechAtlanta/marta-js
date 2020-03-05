@@ -17,6 +17,20 @@ the Realtime Rail data. The Realtime Bus data does not require an API key.
 
     npm install --save marta-js
 
+### CommonJS import
+
+```js
+const MartaApi = require('marta-js').MartaApi
+const marta = new MartaApi('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx') // your API key
+```
+
+### ES6 import
+
+```js
+import { MartaApi } from 'marta-js'
+const marta = new MartaApi('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx') // your API key
+```
+
 ### Promises vs Callbacks
 
 All methods support both promises and callbacks.
@@ -61,8 +75,8 @@ This is the same data that powers the realtime train time monitors in the statio
 it will tell you how long until the next several trains arrive.
 
 ```js
-const MartaApi = require('marta-js')
-const marta = new MartaApi('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx') // your API key
+const MartaApi = require('marta-js').MartaApi
+const marta = new MartaApi('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx')
 
 marta.getRealtimeTrainArrivals(function (error, arrivals) {
   /*
@@ -102,7 +116,7 @@ This is the same as `getRealtimeTrainArrivals`, but filtered to only the specifi
 
 ```js
 const MartaApi = require('marta-js')
-const marta = new MartaApi('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx') // your API key
+const marta = new MartaApi('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx')
 
 marta.getRealtimeRailArrivalsForStation('FIVE POINTS STATION', function (error, arrivals) {
   // ...

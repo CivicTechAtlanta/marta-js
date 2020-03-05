@@ -1,14 +1,14 @@
-import { expect } from 'chai'
-import * as MockDate from 'mockdate'
-import moment from 'moment-timezone'
+const expect = require('chai').expect
+const MockDate = require('mockdate')
+const moment = require('moment-timezone')
 
-import * as utils from '../src/utils'
+const utils = require('../dist/utils')
 
 describe('utils', () => {
   afterEach(() => MockDate.reset())
 
   describe('convertApiDateTimeFormat', () => {
-    it('should parse the MARTA format date to a Moment in the right time zone', async () => {
+    it('should parse the MARTA format date to a Moment in the right time zone', () => {
       const t = utils.convertApiDateTimeFormat('3/4/2020 8:34:30 PM')
       expect(t.toString()).to.equal('Wed Mar 04 2020 20:34:30 GMT-0500')
       expect(t.zoneName()).to.equal('EST')
@@ -21,7 +21,7 @@ describe('utils', () => {
       context(`when code running in time zone ${timezone}`, () => {
         const timezoneOffset = moment.tz(timezone).utcOffset()
 
-        it('should convert an arrival time to a moment', async () => {
+        it('should convert an arrival time to a moment', () => {
           // 1:30pm eastern time
           MockDate.set(moment('2020-03-04 13:30:00.000-05:00').toDate(), timezoneOffset)
           const justAhead = utils.convertNextArrivalTime('01:35:30 PM')

@@ -10,7 +10,7 @@ const REALTIME_RAIL_ENDPOINT = 'http://developer.itsmarta.com/RealtimeTrain/Rest
 const REALTIME_BUS_ALL_ENDPOINT = 'http://developer.itsmarta.com/BRDRestService/RestBusRealTimeService/GetAllBus'
 const REALTIME_BUS_ROUTE_ENDPOINT = 'http://developer.itsmarta.com/BRDRestService/RestBusRealTimeService/GetBusByRoute'
 
-class MartaApi {
+export class MartaApi {
   private readonly apiKey: string | null
 
   constructor (apiKey?: string) {
@@ -48,8 +48,7 @@ class MartaApi {
   }
 
   private async request<T> (url: string): Promise<T> {
-    return axios.get(url, { params: { apikey: this.apiKey } })
+    const res = await axios.get(url, { params: { apikey: this.apiKey } })
+    return res.data
   }
 }
-
-export default MartaApi
