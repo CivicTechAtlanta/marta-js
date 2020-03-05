@@ -1,17 +1,22 @@
 {
   "name": "marta-js-sdk",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "An SDK for the MARTA realtime APIs",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "charles@rabidaudio.com",
   "license": "MIT",
   "dependencies": {
-    "moment": "^2.18.1",
-    "moment-timezone": "^0.5.13",
-    "request": "^2.81.0",
-    "standard": "^10.0.2"
+    "axios": "^0.19.2",
+    "moment": "^2.24.0",
+    "moment-timezone": "^0.5.28"
+  },
+  "devDependencies": {
+    "@types/es6-promise": "^3.3.0",
+    "@types/moment": "^2.13.0",
+    "@types/moment-timezone": "^0.5.12",
+    "typescript": "^3.8.3"
   }
 }
