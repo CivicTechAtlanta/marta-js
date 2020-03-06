@@ -22,3 +22,4 @@ export declare class RealtimeBusApi {
     private convertBusDirection;
     private convertResponse;
 }
+//# sourceMappingURL=RealtimeBusApi.d.ts.map

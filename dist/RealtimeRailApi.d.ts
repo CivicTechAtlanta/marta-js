@@ -24,3 +24,4 @@ export declare class RealtimeRailApi {
     private convertRailDirection;
     private convertResponse;
 }
+//# sourceMappingURL=RealtimeRailApi.d.ts.map

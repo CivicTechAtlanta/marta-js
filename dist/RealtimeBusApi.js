@@ -45,7 +45,9 @@ var utils_1 = require("./utils");
 var REALTIME_BUS_ALL_ENDPOINT = 'http://developer.itsmarta.com/BRDRestService/RestBusRealTimeService/GetAllBus';
 var REALTIME_BUS_ROUTE_ENDPOINT = 'http://developer.itsmarta.com/BRDRestService/RestBusRealTimeService/GetBusByRoute';
 var RealtimeBusApi = /** @class */ (function () {
-    function RealtimeBusApi() {
+    function RealtimeBusApi(_a) {
+        var _b = _a.useCorsProxy, useCorsProxy = _b === void 0 ? false : _b;
+        this.useCorsProxy = useCorsProxy;
     }
     RealtimeBusApi.prototype.getArrivals = function (callback) {
         return __awaiter(this, void 0, void 0, function () {
@@ -90,7 +92,7 @@ var RealtimeBusApi = /** @class */ (function () {
             var res;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, axios_1.default.get(url)];
+                    case 0: return [4 /*yield*/, axios_1.default.get(this.useCorsProxy ? "https://crossorigin.me/" + url : url)];
                     case 1:
                         res = _a.sent();
                         return [2 /*return*/, res.data];

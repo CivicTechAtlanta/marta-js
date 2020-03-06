@@ -3,11 +3,12 @@
   "version": "2.0.0",
   "description": "An SDK for the MARTA realtime APIs",
   "main": "dist/index.js",
+  "browser": "dist/marta.min.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
+    "build": "webpack",
     "clean": "rm -r dist",
-    "test": "tsc && nyc mocha",
+    "test": "npm run build && nyc mocha",
     "lint": "eslint --ext .js,.ts .",
     "lintfix": "eslint --ext .js,.ts --fix ."
   },
@@ -21,7 +22,8 @@
     "require": [
       "ts-node/register",
       "source-map-support/register"
-    ]
+    ],
+    "exclude": ["./tet/browser/**"]
   },
   "nyc": {
     "extends": "@istanbuljs/nyc-config-typescript",
@@ -71,9 +73,14 @@
     "mocha": "^7.1.0",
     "mockdate": "^2.0.5",
     "nyc": "^15.0.0",
+    "source-map-loader": "^0.2.4",
     "source-map-support": "^0.5.16",
+    "ts-loader": "^6.2.1",
     "ts-node": "^8.6.2",
-    "typescript": "^3.8.3"
+    "typescript": "^3.8.3",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11",
+    "xhr-mock": "^2.5.1"
   },
   "repository": {
     "type": "git",
