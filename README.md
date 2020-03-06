@@ -14,25 +14,11 @@ to aid in defining data structures.
 You can [request an API key from MARTA](https://www.itsmarta.com/developer-reg-rtt.aspx) to use for
 the Realtime Rail data. The Realtime Bus data does not require an API key.
 
-## Usage
+# Usage
 
     npm install --save marta-js
 
-### CommonJS import
-
-```js
-const MartaApi = require('marta-js').MartaApi
-const marta = new MartaApi('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx') // your API key
-```
-
-### ES6 import
-
-```js
-import { MartaApi } from 'marta-js'
-const marta = new MartaApi('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx') // your API key
-```
-
-### Promises vs Callbacks
+## Promises vs Callbacks
 
 All methods support both promises and callbacks.
 
@@ -41,7 +27,9 @@ Promise mode:
 ```js
 marta.getRealtimeTrainArrivals().then(function (arrival) {
   // ...
-}).catch(function (error) { console.error(error) })
+}).catch(function (error) {
+  console.error(error)
+})
 ```
 
 Callback mode:
@@ -65,14 +53,14 @@ For example:
 ```html
 <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script> 
-<script src="./node_modules/marta-js/dist/marta.js"></script> 
+<script src="node_modules/marta-js/dist/marta.js"></script> 
 ```
 
-## Methods
+# Methods
 
-### Realtime Rail
+## Realtime Rail
 
-#### Definition
+### Definition
 
 ```typescript
 type RailArrival = {
@@ -89,7 +77,7 @@ type RailArrival = {
 }
 ```
 
-#### Example
+### Example
 
 ```js
 {
@@ -106,36 +94,34 @@ type RailArrival = {
 }
 ```
 
-#### `getRealtimeTrainArrivals`
+### `RealtimeRailApi#getArrivals`
 
 This is the same data that powers the realtime train time monitors in the station. For all stations,
 it will tell you how long until the next several trains arrive.
 
 ```js
-const MartaApi = require('marta-js').MartaApi
-const marta = new MartaApi('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx')
-
-marta.getRealtimeTrainArrivals(function (error, arrivals) {
+const RealtimeRailApi = require('marta-js').RealtimeRailApi
+const marta = new RealtimeRailApi('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx') // your api key
+marta.getArrivals(function (error, arrivals) {
   // ...
 })
 ```
 
-#### `getRealtimeRailArrivalsForStation`
+### `RealtimeRailApi#getArrivalsForStation`
 
-This is the same as `getRealtimeTrainArrivals`, but filtered to only the specified station.
+This is the same as `getArrivals`, but filtered to only the specified station.
 
 ```js
-const MartaApi = require('marta-js')
-const marta = new MartaApi('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx')
-
-marta.getRealtimeRailArrivalsForStation('FIVE POINTS STATION', function (error, arrivals) {
+const RealtimeRailApi = require('marta-js').RealtimeRailApi
+const marta = new RealtimeRailApi('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx') // your api key
+marta.getArrivalsForStation('FIVE POINTS STATION', function (error, arrivals) {
   // ...
 })
 ```
 
-### Realtime Bus
+## Realtime Bus
 
-#### Definition
+### Definition
 
 ```typescript
 type BusArrival = {
@@ -154,7 +140,7 @@ type BusArrival = {
 }
 ```
 
-#### Example
+### Example
 
 ```js
 {
@@ -177,30 +163,30 @@ type BusArrival = {
 }
 ```
 
-#### `getAllRealtimeBusArrivals`
+### `RealtimeBusApi#getArrivals`
 
 This API returns the lastest location update from each bus, it's route, and if it is on-time.
 
 ```js
-const MartaApi = require('marta-js')
-const marta = new MartaApi()
-marta.getAllRealtimeBusArrivals(function (error, arrivals) {
+const RealtimeBusApi = require('marta-js').RealtimeBusApi
+const marta = new RealtimeBusApi()
+marta.getArrivals(function (error, arrivals) {
   // ...
 })
 ```
 
-#### `getAllRealtimeBusArrivalsByRoute`
+### `RealtimeBusApi#getArrivalsForRoute`
 
-This is the same as `getAllRealtimeBusArrivals`, but filtered to only the specified route.
+This is the same as `getArrivals`, but filtered to only the specified route.
 
 ```js
-const MartaApi = require('marta-js')
-const marta = new MartaApi()
-marta.getAllRealtimeBusArrivalsByRoute('12', function (error, arrivals) {
+const RealtimeBusApi = require('marta-js').RealtimeBusApi
+const marta = new RealtimeBusApi()
+marta.getArrivalsForRoute('12', function (error, arrivals) {
   // ...
 })
 ```
 
-## License
+# License
 
 [MIT](LICENSE)

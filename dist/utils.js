@@ -59,43 +59,6 @@ function convertApiDateTimeFormat(formattedTime) {
     return moment_timezone_1.default.tz(formattedTime, TIME_FORMAT, TIMEZONE);
 }
 exports.convertApiDateTimeFormat = convertApiDateTimeFormat;
-function convertBusDirection(apiDirection) {
-    switch (apiDirection) {
-        case 'Northbound': return 'North';
-        case 'Southbound': return 'South';
-        case 'Eastbound': return 'East';
-        case 'Westbound': return 'West';
-    }
-}
-function convertApiBusArrival(res) {
-    // Note: from the API, a positive number indicates bus is running late, and a
-    // a negative number indicates bus is running early. I think this is opposite of what
-    // is expected so we reverse it here.
-    var adheranceMinutes = -1 * parseInt(res.ADHERENCE, 10);
-    return {
-        adherence: moment_timezone_1.default.duration(adheranceMinutes, 'minutes'),
-        blockId: res.BLOCKID,
-        blockAbbriviation: res.BLOCK_ABBR,
-        direction: convertBusDirection(res.DIRECTION),
-        latitude: parseFloat(res.LATITUDE),
-        longitude: parseFloat(res.LONGITUDE),
-        eventTime: convertApiDateTimeFormat(res.MSGTIME),
-        route: res.ROUTE,
-        stopId: res.STOPID,
-        timepoint: res.TIMEPOINT,
-        tripId: res.TRIPID,
-        busId: res.VEHICLE
-    };
-}
-exports.convertApiBusArrival = convertApiBusArrival;
-function convertRailDirection(apiDirection) {
-    switch (apiDirection) {
-        case 'N': return 'North';
-        case 'S': return 'South';
-        case 'E': return 'East';
-        case 'W': return 'West';
-    }
-}
 // arrival time comes in just a time, like "09:44:46 PM"
 // to convert to a moment, we need to find the next point
 // in the future where it is that time (not necessarily today,
@@ -120,20 +83,4 @@ function convertNextArrivalTime(arrivalTime) {
     }
 }
 exports.convertNextArrivalTime = convertNextArrivalTime;
-function convertApiRailArrival(res) {
-    var waitingTimeSeconds = parseInt(res.WAITING_SECONDS, 10);
-    return {
-        destination: res.DESTINATION,
-        direction: convertRailDirection(res.DIRECTION),
-        eventTime: convertApiDateTimeFormat(res.EVENT_TIME),
-        line: res.LINE,
-        nextArrival: convertNextArrivalTime(res.NEXT_ARR),
-        station: res.STATION,
-        trainId: res.TRAIN_ID,
-        waitingTimeSeconds: waitingTimeSeconds,
-        waitingTime: moment_timezone_1.default.duration(waitingTimeSeconds, 'seconds'),
-        waitingState: res.WAITING_TIME
-    };
-}
-exports.convertApiRailArrival = convertApiRailArrival;
 //# sourceMappingURL=utils.js.map
