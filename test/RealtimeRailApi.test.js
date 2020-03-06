@@ -6,12 +6,17 @@ const VCR = require('axios-vcr')
 const RealtimeRailApi = require('../dist').RealtimeRailApi
 
 describe('RealtimeRailApi', () => {
-  const marta = new RealtimeRailApi(process.env.API_KEY)
-
   beforeEach(() => MockDate.set(moment('2020-03-04 23:00:00.000-05:00').toDate()))
   afterEach(() => MockDate.reset())
 
-  beforeEach(() => VCR.mountCassette('./test/fixtures/realtimeRail/getArrivals.json'))
+  beforeEach(() => {
+    if (require('fs').existsSync('./test/fixtures/realtimeRail/getArrivals.json')) {
+      process.env.API_KEY = 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'
+    } else if (!process.env.API_KEY) {
+      throw new Error('To record the fixtures, you need to supply the API_KEY environment variable')
+    }
+    VCR.mountCassette('./test/fixtures/realtimeRail/getArrivals.json')
+  })
   afterEach(() => VCR.ejectCassette('./test/fixtures/realtimeRail/getArrivals.json'))
 
   it('should require an api key', () => {
@@ -20,6 +25,7 @@ describe('RealtimeRailApi', () => {
 
   describe('getArrivals', () => {
     it('should support promise form', async () => {
+      const marta = new RealtimeRailApi(process.env.API_KEY)
       const results = await marta.getArrivals()
       expect(results.length).to.equal(51)
       expect(results[0].destination).to.equal('Indian Creek')
@@ -44,6 +50,7 @@ describe('RealtimeRailApi', () => {
     })
 
     it('should support callback form', (done) => {
+      const marta = new RealtimeRailApi(process.env.API_KEY)
       marta.getArrivals((err, results) => {
         try {
           expect(err).to.equal(null)
@@ -59,6 +66,7 @@ describe('RealtimeRailApi', () => {
 
   describe('getArrivalsForStation', () => {
     it('should support promise form', async () => {
+      const marta = new RealtimeRailApi(process.env.API_KEY)
       const results = await marta.getArrivalsForStation('MIDTOWN STATION')
       expect(results.length).to.equal(2)
 
@@ -72,6 +80,7 @@ describe('RealtimeRailApi', () => {
     })
 
     it('should support callback form', (done) => {
+      const marta = new RealtimeRailApi(process.env.API_KEY)
       marta.getArrivalsForStation('MIDTOWN STATION', (err, results) => {
         try {
           expect(err).to.equal(null)

@@ -18,12 +18,17 @@
     "ui": "bdd",
     "recursive": true,
     "exit": true,
-    "file": ["test/prepare.js"],
-    "require": ["ts-node/register", "source-map-support/register"]
+    "require": [
+      "ts-node/register",
+      "source-map-support/register"
+    ]
   },
   "nyc": {
     "extends": "@istanbuljs/nyc-config-typescript",
-    "extensions": ["ts", "js"],
+    "extensions": [
+      "ts",
+      "js"
+    ],
     "reporter": [
       "text",
       "text-summary"
@@ -38,7 +43,9 @@
       "mocha": true
     }
   },
-  "eslintIgnore": ["dist"],
+  "eslintIgnore": [
+    "dist"
+  ],
   "dependencies": {
     "axios": "^0.19.2",
     "moment": "^2.24.0",
@@ -55,7 +62,6 @@
     "@typescript-eslint/eslint-plugin": "^2.22.0",
     "axios-vcr": "^1.0.2",
     "chai": "^4.2.0",
-    "chai-as-promised": "^7.1.1",
     "eslint": "^6.8.0",
     "eslint-config-standard-with-typescript": "^14.0.0",
     "eslint-plugin-import": "^2.20.1",
