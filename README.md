@@ -3,9 +3,10 @@
 This library is a wrapper for the
 [MARTA Realtime RESTful APIs](https://www.itsmarta.com/app-developer-resources.aspx).
 
+It's designed to work both in node.js and the browser.
+
 Because the documentation of the upstream APIs is limited, this library alters some naming
-conventions from what the API
-returns in an effort to make the data easier to understand.
+conventions from what the API returns in an effort to make the data easier to understand.
 
 It uses [moment](https://momentjs.com/docs) for times and durations, and it's written in TypeScript
 to aid in defining data structures.
