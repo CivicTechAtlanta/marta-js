@@ -6,9 +6,9 @@
   "browser": "dist/marta.min.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "webpack",
+    "build": "npm run clean && webpack",
     "clean": "rm -r dist",
-    "test": "npm run build && nyc mocha",
+    "test": "nyc mocha",
     "lint": "eslint --ext .js,.ts .",
     "lintfix": "eslint --ext .js,.ts --fix ."
   },

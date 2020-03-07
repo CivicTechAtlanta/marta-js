@@ -2,7 +2,7 @@ const expect = require('chai').expect
 const MockDate = require('mockdate')
 const moment = require('moment-timezone')
 
-const utils = require('../dist/utils')
+const utils = require('../src/utils')
 
 describe('utils', () => {
   afterEach(() => MockDate.reset())

@@ -3,7 +3,7 @@ const MockDate = require('mockdate')
 const moment = require('moment-timezone')
 const VCR = require('axios-vcr')
 
-const RealtimeRailApi = require('../dist').RealtimeRailApi
+const RealtimeRailApi = require('../src/RealtimeRailApi').RealtimeRailApi
 
 describe('RealtimeRailApi', () => {
   beforeEach(() => MockDate.set(moment('2020-03-04 23:00:00.000-05:00').toDate()))

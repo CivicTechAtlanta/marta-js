@@ -1,7 +1,7 @@
 const expect = require('chai').expect
 const VCR = require('axios-vcr')
 
-const RealtimeBusApi = require('../dist').RealtimeBusApi
+const RealtimeBusApi = require('../src/RealtimeBusApi').RealtimeBusApi
 
 describe('RealtimeBusApi', () => {
   const marta = new RealtimeBusApi()
