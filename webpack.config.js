@@ -26,7 +26,7 @@ const commonjsConfig = {
     filename: 'index.js',
     path: path.resolve(__dirname, 'dist'),
     libraryTarget: 'umd',
-    library: 'MartaApi'
+    library: 'Marta'
   }
 }
 
@@ -37,7 +37,7 @@ const browerConfig = {
     filename: 'marta.min.js',
     path: path.resolve(__dirname, 'dist'),
     libraryTarget: 'var',
-    library: 'MartaApi'
+    library: 'Marta'
   },
   externals: {
     moment: 'moment',

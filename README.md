@@ -20,12 +20,12 @@ the Realtime Rail data. The Realtime Bus data does not require an API key.
 
 ## Promises vs Callbacks
 
-All methods support both promises and callbacks.
+All methods support both [promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) and callbacks.
 
 Promise mode:
 
 ```js
-marta.getRealtimeTrainArrivals().then(function (arrival) {
+railApi.getRealtimeTrainArrivals().then(function (arrival) {
   // ...
 }).catch(function (error) {
   console.error(error)
@@ -35,7 +35,7 @@ marta.getRealtimeTrainArrivals().then(function (arrival) {
 Callback mode:
 
 ```js
-marta.getRealtimeTrainArrivals(function (error, arrival) {
+railApi.getRealtimeTrainArrivals(function (error, arrival) {
   if (error) {
     console.error(error)
   } else {
@@ -44,16 +44,29 @@ marta.getRealtimeTrainArrivals(function (error, arrival) {
 })
 ```
 
+## In the browser
+
 This library depends on a native ES6 Promise implementation to be
 [supported](http://caniuse.com/promises). If your environment doesn't support ES6 Promises,
 for example older browsers, you can [polyfill](https://github.com/jakearchibald/es6-promise).
 
-For example:
+This library also depends on [moment-timezone](https://momentjs.com/timezone/docs/), which
+is a fairly large library, so it is not bundled in the browser output blob.
+
+NOTE: currently the Realtime APIs don't work from the browser, as the API does not support
+CORS. Hopefully this will be resolved soon.
 
 ```html
+<!-- polyfil for Promises -->
 <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script> 
-<script src="node_modules/marta-js/dist/marta.js"></script> 
+<script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
+<!-- moment-timezone -->
+<!-- marta-js -->
+<script src="node_modules/marta-js/dist/marta.js"></script>
+<script>
+  // library is exposed as a global "Marta":
+  const busApi = new window.Marta.RealtimeBusApi()
+</script>
 ```
 
 # Methods
@@ -101,8 +114,8 @@ it will tell you how long until the next several trains arrive.
 
 ```js
 const RealtimeRailApi = require('marta-js').RealtimeRailApi
-const marta = new RealtimeRailApi('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx') // your api key
-marta.getArrivals(function (error, arrivals) {
+const railApi = new RealtimeRailApi('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx') // your api key
+railApi.getArrivals(function (error, arrivals) {
   // ...
 })
 ```
@@ -113,8 +126,8 @@ This is the same as `getArrivals`, but filtered to only the specified station.
 
 ```js
 const RealtimeRailApi = require('marta-js').RealtimeRailApi
-const marta = new RealtimeRailApi('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx') // your api key
-marta.getArrivalsForStation('FIVE POINTS STATION', function (error, arrivals) {
+const railApi = new RealtimeRailApi('xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx') // your api key
+railApi.getArrivalsForStation('FIVE POINTS STATION', function (error, arrivals) {
   // ...
 })
 ```
@@ -169,8 +182,8 @@ This API returns the lastest location update from each bus, it's route, and if i
 
 ```js
 const RealtimeBusApi = require('marta-js').RealtimeBusApi
-const marta = new RealtimeBusApi()
-marta.getArrivals(function (error, arrivals) {
+const busApi = new RealtimeBusApi()
+busApi.getArrivals(function (error, arrivals) {
   // ...
 })
 ```
@@ -181,8 +194,8 @@ This is the same as `getArrivals`, but filtered to only the specified route.
 
 ```js
 const RealtimeBusApi = require('marta-js').RealtimeBusApi
-const marta = new RealtimeBusApi()
-marta.getArrivalsForRoute('12', function (error, arrivals) {
+const busApi = new RealtimeBusApi()
+busApi.getArrivalsForRoute('12', function (error, arrivals) {
   // ...
 })
 ```

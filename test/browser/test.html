@@ -59,7 +59,7 @@
             }
           ])
         })
-        const marta = new MartaApi.RealtimeBusApi()
+        const marta = new Marta.RealtimeBusApi()
         return marta.getArrivals().then(function (results) {
           expect(results.length).to.equal(2)
           expect(results[0].adherence.asSeconds()).to.equal(0)
