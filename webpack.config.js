@@ -6,22 +6,22 @@ const sharedConfig = {
   mode: process.env.NODE_ENV,
   entry: './src/index.ts',
   resolve: {
-    extensions: [".ts", ".js"]
+    extensions: ['.ts', '.js']
   },
   module: {
     rules: [
-        {
-            test: /\.ts$/,
-            exclude: /node_modules/,
-            use: "ts-loader"
-        }
+      {
+        test: /\.ts$/,
+        exclude: /node_modules/,
+        use: 'ts-loader'
+      }
     ]
   }
 }
 
 const commonjsConfig = {
   ...sharedConfig,
-  target: "node",
+  target: 'node',
   output: {
     filename: 'index.js',
     path: path.resolve(__dirname, 'dist'),
@@ -32,7 +32,7 @@ const commonjsConfig = {
 
 const browerConfig = {
   ...sharedConfig,
-  target: "web",
+  target: 'web',
   output: {
     filename: 'marta.min.js',
     path: path.resolve(__dirname, 'dist'),
@@ -40,8 +40,8 @@ const browerConfig = {
     library: 'MartaApi'
   },
   externals: {
-    "moment": "moment",
-    "moment-timezone": "moment"
+    moment: 'moment',
+    'moment-timezone': 'moment'
   }
 }
 module.exports = [commonjsConfig, browerConfig]

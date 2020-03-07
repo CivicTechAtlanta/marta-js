@@ -23,7 +23,7 @@
       "ts-node/register",
       "source-map-support/register"
     ],
-    "exclude": ["./tet/browser/**"]
+    "exclude": ["./test/browser/**"]
   },
   "nyc": {
     "extends": "@istanbuljs/nyc-config-typescript",
