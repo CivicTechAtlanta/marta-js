@@ -61,6 +61,8 @@ CORS. Hopefully this will be resolved soon.
 <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.min.js"></script>
 <!-- moment-timezone -->
+  <script src="node_modules/moment/moment.js"></script>
+  <script src="node_modules/moment-timezone/builds/moment-timezone-with-data.min.js"></script>
 <!-- marta-js -->
 <script src="node_modules/marta-js/dist/marta.js"></script>
 <script>
