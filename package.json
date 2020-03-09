@@ -1,5 +1,5 @@
 {
-  "name": "marta-js-sdk",
+  "name": "marta-js",
   "version": "2.0.0",
   "description": "An SDK for the MARTA realtime APIs",
   "main": "dist/index.js",
