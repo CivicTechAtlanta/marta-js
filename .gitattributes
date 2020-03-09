@@ -1,0 +1,4 @@
+package-lock.json binary
+dist/* binary
+test/fixtures/* binary
+

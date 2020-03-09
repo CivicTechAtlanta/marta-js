@@ -1,0 +1,599 @@
+{
+  "2b45a29af08afb36ab368165fbbf1525": {
+    "meta": {
+      "url": "http://developer.itsmarta.com/RealtimeTrain/RestServiceNextTrain/GetRealtimeArrivals",
+      "method": "get",
+      "headers": {
+        "Accept": "application/json, text/plain, */*",
+        "User-Agent": "axios-vcr"
+      }
+    },
+    "fixture": true,
+    "originalResponseData": {
+      "status": 200,
+      "statusText": "OK",
+      "headers": {
+        "cache-control": "private",
+        "content-length": "11301",
+        "content-type": "application/json; charset=utf-8",
+        "server": "Microsoft-IIS/7.5",
+        "x-aspnet-version": "4.0.30319",
+        "x-powered-by": "ASP.NET",
+        "x-frame-options": "SAMEORIGIN",
+        "date": "Thu, 05 Mar 2020 06:27:35 GMT",
+        "connection": "close"
+      },
+      "data": [
+        {
+          "DESTINATION": "Indian Creek",
+          "DIRECTION": "E",
+          "EVENT_TIME": "3/5/2020 1:27:23 AM",
+          "LINE": "BLUE",
+          "NEXT_ARR": "01:27:50 AM",
+          "STATION": "INMAN PARK STATION",
+          "TRAIN_ID": "108026",
+          "WAITING_SECONDS": "15",
+          "WAITING_TIME": "Arriving"
+        },
+        {
+          "DESTINATION": "Airport",
+          "DIRECTION": "S",
+          "EVENT_TIME": "3/5/2020 1:27:15 AM",
+          "LINE": "GOLD",
+          "NEXT_ARR": "01:27:51 AM",
+          "STATION": "WEST END STATION",
+          "TRAIN_ID": "309506",
+          "WAITING_SECONDS": "16",
+          "WAITING_TIME": "Arriving"
+        },
+        {
+          "DESTINATION": "North Springs",
+          "DIRECTION": "N",
+          "EVENT_TIME": "3/5/2020 1:27:06 AM",
+          "LINE": "RED",
+          "NEXT_ARR": "01:27:51 AM",
+          "STATION": "MEDICAL CENTER STATION",
+          "TRAIN_ID": "406306",
+          "WAITING_SECONDS": "16",
+          "WAITING_TIME": "Arriving"
+        },
+        {
+          "DESTINATION": "Hamilton E Holmes",
+          "DIRECTION": "W",
+          "EVENT_TIME": "3/5/2020 1:27:19 AM",
+          "LINE": "BLUE",
+          "NEXT_ARR": "01:28:02 AM",
+          "STATION": "KENSINGTON STATION",
+          "TRAIN_ID": "107206",
+          "WAITING_SECONDS": "27",
+          "WAITING_TIME": "Arriving"
+        },
+        {
+          "DESTINATION": "Doraville",
+          "DIRECTION": "N",
+          "EVENT_TIME": "3/5/2020 1:27:24 AM",
+          "LINE": "GOLD",
+          "NEXT_ARR": "01:28:12 AM",
+          "STATION": "MIDTOWN STATION",
+          "TRAIN_ID": "305326",
+          "WAITING_SECONDS": "37",
+          "WAITING_TIME": "Arriving"
+        },
+        {
+          "DESTINATION": "Lindbergh",
+          "DIRECTION": "S",
+          "EVENT_TIME": "3/5/2020 1:27:17 AM",
+          "LINE": "RED",
+          "NEXT_ARR": "01:28:19 AM",
+          "STATION": "BUCKHEAD STATION",
+          "TRAIN_ID": "408366",
+          "WAITING_SECONDS": "44",
+          "WAITING_TIME": "Arriving"
+        },
+        {
+          "DESTINATION": "Doraville",
+          "DIRECTION": "N",
+          "EVENT_TIME": "3/5/2020 1:27:24 AM",
+          "LINE": "GOLD",
+          "NEXT_ARR": "01:29:45 AM",
+          "STATION": "ARTS CENTER STATION",
+          "TRAIN_ID": "305326",
+          "WAITING_SECONDS": "130",
+          "WAITING_TIME": "1 min"
+        },
+        {
+          "DESTINATION": "Indian Creek",
+          "DIRECTION": "E",
+          "EVENT_TIME": "3/5/2020 1:27:23 AM",
+          "LINE": "BLUE",
+          "NEXT_ARR": "01:29:45 AM",
+          "STATION": "EDGEWOOD CANDLER PARK STATION",
+          "TRAIN_ID": "108026",
+          "WAITING_SECONDS": "130",
+          "WAITING_TIME": "1 min"
+        },
+        {
+          "DESTINATION": "North Springs",
+          "DIRECTION": "N",
+          "EVENT_TIME": "3/5/2020 1:27:06 AM",
+          "LINE": "RED",
+          "NEXT_ARR": "01:29:58 AM",
+          "STATION": "DUNWOODY STATION",
+          "TRAIN_ID": "406306",
+          "WAITING_SECONDS": "143",
+          "WAITING_TIME": "1 min"
+        },
+        {
+          "DESTINATION": "Airport",
+          "DIRECTION": "S",
+          "EVENT_TIME": "3/5/2020 1:27:15 AM",
+          "LINE": "GOLD",
+          "NEXT_ARR": "01:30:24 AM",
+          "STATION": "OAKLAND CITY STATION",
+          "TRAIN_ID": "309506",
+          "WAITING_SECONDS": "169",
+          "WAITING_TIME": "2 min"
+        },
+        {
+          "DESTINATION": "Hamilton E Holmes",
+          "DIRECTION": "W",
+          "EVENT_TIME": "3/5/2020 1:27:19 AM",
+          "LINE": "BLUE",
+          "NEXT_ARR": "01:31:47 AM",
+          "STATION": "AVONDALE STATION",
+          "TRAIN_ID": "107206",
+          "WAITING_SECONDS": "252",
+          "WAITING_TIME": "3 min"
+        },
+        {
+          "DESTINATION": "North Springs",
+          "DIRECTION": "N",
+          "EVENT_TIME": "3/5/2020 1:27:06 AM",
+          "LINE": "RED",
+          "NEXT_ARR": "01:31:52 AM",
+          "STATION": "SANDY SPRINGS STATION",
+          "TRAIN_ID": "406306",
+          "WAITING_SECONDS": "257",
+          "WAITING_TIME": "3 min"
+        },
+        {
+          "DESTINATION": "Lindbergh",
+          "DIRECTION": "S",
+          "EVENT_TIME": "3/5/2020 1:27:17 AM",
+          "LINE": "RED",
+          "NEXT_ARR": "01:32:14 AM",
+          "STATION": "LINDBERGH STATION",
+          "TRAIN_ID": "408366",
+          "WAITING_SECONDS": "279",
+          "WAITING_TIME": "4 min"
+        },
+        {
+          "DESTINATION": "Indian Creek",
+          "DIRECTION": "E",
+          "EVENT_TIME": "3/5/2020 1:27:23 AM",
+          "LINE": "BLUE",
+          "NEXT_ARR": "01:32:37 AM",
+          "STATION": "EAST LAKE STATION",
+          "TRAIN_ID": "108026",
+          "WAITING_SECONDS": "302",
+          "WAITING_TIME": "4 min"
+        },
+        {
+          "DESTINATION": "Airport",
+          "DIRECTION": "S",
+          "EVENT_TIME": "3/5/2020 1:27:15 AM",
+          "LINE": "GOLD",
+          "NEXT_ARR": "01:32:42 AM",
+          "STATION": "LAKEWOOD STATION",
+          "TRAIN_ID": "309506",
+          "WAITING_SECONDS": "307",
+          "WAITING_TIME": "4 min"
+        },
+        {
+          "DESTINATION": "Doraville",
+          "DIRECTION": "N",
+          "EVENT_TIME": "3/5/2020 1:27:24 AM",
+          "LINE": "GOLD",
+          "NEXT_ARR": "01:33:17 AM",
+          "STATION": "LINDBERGH STATION",
+          "TRAIN_ID": "305326",
+          "WAITING_SECONDS": "342",
+          "WAITING_TIME": "5 min"
+        },
+        {
+          "DESTINATION": "Hamilton E Holmes",
+          "DIRECTION": "W",
+          "EVENT_TIME": "3/5/2020 1:27:19 AM",
+          "LINE": "BLUE",
+          "NEXT_ARR": "01:33:26 AM",
+          "STATION": "DECATUR STATION",
+          "TRAIN_ID": "107206",
+          "WAITING_SECONDS": "351",
+          "WAITING_TIME": "5 min"
+        },
+        {
+          "DESTINATION": "North Springs",
+          "DIRECTION": "N",
+          "EVENT_TIME": "3/5/2020 1:27:06 AM",
+          "LINE": "RED",
+          "NEXT_ARR": "01:34:29 AM",
+          "STATION": "NORTH SPRINGS STATION",
+          "TRAIN_ID": "406306",
+          "WAITING_SECONDS": "414",
+          "WAITING_TIME": "6 min"
+        },
+        {
+          "DESTINATION": "Airport",
+          "DIRECTION": "S",
+          "EVENT_TIME": "3/5/2020 1:27:15 AM",
+          "LINE": "GOLD",
+          "NEXT_ARR": "01:35:30 AM",
+          "STATION": "EAST POINT STATION",
+          "TRAIN_ID": "309506",
+          "WAITING_SECONDS": "475",
+          "WAITING_TIME": "7 min"
+        },
+        {
+          "DESTINATION": "Indian Creek",
+          "DIRECTION": "E",
+          "EVENT_TIME": "3/5/2020 1:27:23 AM",
+          "LINE": "BLUE",
+          "NEXT_ARR": "01:36:01 AM",
+          "STATION": "DECATUR STATION",
+          "TRAIN_ID": "108026",
+          "WAITING_SECONDS": "506",
+          "WAITING_TIME": "7 min"
+        },
+        {
+          "DESTINATION": "Lindbergh",
+          "DIRECTION": "S",
+          "EVENT_TIME": "3/5/2020 1:27:17 AM",
+          "LINE": "RED",
+          "NEXT_ARR": "01:36:04 AM",
+          "STATION": "ARTS CENTER STATION",
+          "TRAIN_ID": "408366",
+          "WAITING_SECONDS": "509",
+          "WAITING_TIME": "7 min"
+        },
+        {
+          "DESTINATION": "Hamilton E Holmes",
+          "DIRECTION": "W",
+          "EVENT_TIME": "3/5/2020 1:27:19 AM",
+          "LINE": "BLUE",
+          "NEXT_ARR": "01:36:51 AM",
+          "STATION": "EAST LAKE STATION",
+          "TRAIN_ID": "107206",
+          "WAITING_SECONDS": "556",
+          "WAITING_TIME": "8 min"
+        },
+        {
+          "DESTINATION": "Doraville",
+          "DIRECTION": "N",
+          "EVENT_TIME": "3/5/2020 1:27:24 AM",
+          "LINE": "GOLD",
+          "NEXT_ARR": "01:37:06 AM",
+          "STATION": "LENOX STATION",
+          "TRAIN_ID": "305326",
+          "WAITING_SECONDS": "571",
+          "WAITING_TIME": "9 min"
+        },
+        {
+          "DESTINATION": "Lindbergh",
+          "DIRECTION": "S",
+          "EVENT_TIME": "3/5/2020 1:27:17 AM",
+          "LINE": "RED",
+          "NEXT_ARR": "01:37:24 AM",
+          "STATION": "MIDTOWN STATION",
+          "TRAIN_ID": "408366",
+          "WAITING_SECONDS": "589",
+          "WAITING_TIME": "9 min"
+        },
+        {
+          "DESTINATION": "Airport",
+          "DIRECTION": "S",
+          "EVENT_TIME": "3/5/2020 1:27:15 AM",
+          "LINE": "GOLD",
+          "NEXT_ARR": "01:38:13 AM",
+          "STATION": "COLLEGE PARK STATION",
+          "TRAIN_ID": "309506",
+          "WAITING_SECONDS": "638",
+          "WAITING_TIME": "10 min"
+        },
+        {
+          "DESTINATION": "Indian Creek",
+          "DIRECTION": "E",
+          "EVENT_TIME": "3/5/2020 1:27:23 AM",
+          "LINE": "BLUE",
+          "NEXT_ARR": "01:38:20 AM",
+          "STATION": "AVONDALE STATION",
+          "TRAIN_ID": "108026",
+          "WAITING_SECONDS": "645",
+          "WAITING_TIME": "10 min"
+        },
+        {
+          "DESTINATION": "Lindbergh",
+          "DIRECTION": "S",
+          "EVENT_TIME": "3/5/2020 1:27:17 AM",
+          "LINE": "RED",
+          "NEXT_ARR": "01:39:01 AM",
+          "STATION": "NORTH AVE STATION",
+          "TRAIN_ID": "408366",
+          "WAITING_SECONDS": "686",
+          "WAITING_TIME": "10 min"
+        },
+        {
+          "DESTINATION": "Hamilton E Holmes",
+          "DIRECTION": "W",
+          "EVENT_TIME": "3/5/2020 1:27:19 AM",
+          "LINE": "BLUE",
+          "NEXT_ARR": "01:39:31 AM",
+          "STATION": "EDGEWOOD CANDLER PARK STATION",
+          "TRAIN_ID": "107206",
+          "WAITING_SECONDS": "716",
+          "WAITING_TIME": "11 min"
+        },
+        {
+          "DESTINATION": "Doraville",
+          "DIRECTION": "N",
+          "EVENT_TIME": "3/5/2020 1:27:24 AM",
+          "LINE": "GOLD",
+          "NEXT_ARR": "01:39:41 AM",
+          "STATION": "BROOKHAVEN STATION",
+          "TRAIN_ID": "305326",
+          "WAITING_SECONDS": "726",
+          "WAITING_TIME": "11 min"
+        },
+        {
+          "DESTINATION": "Airport",
+          "DIRECTION": "S",
+          "EVENT_TIME": "3/5/2020 1:27:15 AM",
+          "LINE": "GOLD",
+          "NEXT_ARR": "01:40:34 AM",
+          "STATION": "AIRPORT STATION",
+          "TRAIN_ID": "309506",
+          "WAITING_SECONDS": "779",
+          "WAITING_TIME": "12 min"
+        },
+        {
+          "DESTINATION": "Lindbergh",
+          "DIRECTION": "S",
+          "EVENT_TIME": "3/5/2020 1:27:17 AM",
+          "LINE": "RED",
+          "NEXT_ARR": "01:40:45 AM",
+          "STATION": "CIVIC CENTER STATION",
+          "TRAIN_ID": "408366",
+          "WAITING_SECONDS": "790",
+          "WAITING_TIME": "12 min"
+        },
+        {
+          "DESTINATION": "Hamilton E Holmes",
+          "DIRECTION": "W",
+          "EVENT_TIME": "3/5/2020 1:27:19 AM",
+          "LINE": "BLUE",
+          "NEXT_ARR": "01:41:17 AM",
+          "STATION": "INMAN PARK STATION",
+          "TRAIN_ID": "107206",
+          "WAITING_SECONDS": "822",
+          "WAITING_TIME": "13 min"
+        },
+        {
+          "DESTINATION": "Indian Creek",
+          "DIRECTION": "E",
+          "EVENT_TIME": "3/5/2020 1:27:23 AM",
+          "LINE": "BLUE",
+          "NEXT_ARR": "01:41:18 AM",
+          "STATION": "KENSINGTON STATION",
+          "TRAIN_ID": "108026",
+          "WAITING_SECONDS": "823",
+          "WAITING_TIME": "13 min"
+        },
+        {
+          "DESTINATION": "Lindbergh",
+          "DIRECTION": "S",
+          "EVENT_TIME": "3/5/2020 1:27:17 AM",
+          "LINE": "RED",
+          "NEXT_ARR": "01:41:57 AM",
+          "STATION": "PEACHTREE CENTER STATION",
+          "TRAIN_ID": "408366",
+          "WAITING_SECONDS": "862",
+          "WAITING_TIME": "13 min"
+        },
+        {
+          "DESTINATION": "Doraville",
+          "DIRECTION": "N",
+          "EVENT_TIME": "3/5/2020 1:27:24 AM",
+          "LINE": "GOLD",
+          "NEXT_ARR": "01:43:17 AM",
+          "STATION": "CHAMBLEE STATION",
+          "TRAIN_ID": "305326",
+          "WAITING_SECONDS": "942",
+          "WAITING_TIME": "15 min"
+        },
+        {
+          "DESTINATION": "Hamilton E Holmes",
+          "DIRECTION": "W",
+          "EVENT_TIME": "3/5/2020 1:27:19 AM",
+          "LINE": "BLUE",
+          "NEXT_ARR": "01:43:46 AM",
+          "STATION": "KING MEMORIAL STATION",
+          "TRAIN_ID": "107206",
+          "WAITING_SECONDS": "971",
+          "WAITING_TIME": "15 min"
+        },
+        {
+          "DESTINATION": "Indian Creek",
+          "DIRECTION": "E",
+          "EVENT_TIME": "3/5/2020 1:27:23 AM",
+          "LINE": "BLUE",
+          "NEXT_ARR": "01:43:54 AM",
+          "STATION": "INDIAN CREEK STATION",
+          "TRAIN_ID": "108026",
+          "WAITING_SECONDS": "979",
+          "WAITING_TIME": "15 min"
+        },
+        {
+          "DESTINATION": "Lindbergh",
+          "DIRECTION": "S",
+          "EVENT_TIME": "3/5/2020 1:27:17 AM",
+          "LINE": "RED",
+          "NEXT_ARR": "01:44:05 AM",
+          "STATION": "FIVE POINTS STATION",
+          "TRAIN_ID": "408366",
+          "WAITING_SECONDS": "990",
+          "WAITING_TIME": "15 min"
+        },
+        {
+          "DESTINATION": "Hamilton E Holmes",
+          "DIRECTION": "W",
+          "EVENT_TIME": "3/5/2020 1:27:19 AM",
+          "LINE": "BLUE",
+          "NEXT_ARR": "01:45:43 AM",
+          "STATION": "GEORGIA STATE STATION",
+          "TRAIN_ID": "107206",
+          "WAITING_SECONDS": "1088",
+          "WAITING_TIME": "17 min"
+        },
+        {
+          "DESTINATION": "Lindbergh",
+          "DIRECTION": "S",
+          "EVENT_TIME": "3/5/2020 1:27:17 AM",
+          "LINE": "RED",
+          "NEXT_ARR": "01:45:51 AM",
+          "STATION": "GARNETT STATION",
+          "TRAIN_ID": "408366",
+          "WAITING_SECONDS": "1096",
+          "WAITING_TIME": "17 min"
+        },
+        {
+          "DESTINATION": "Doraville",
+          "DIRECTION": "N",
+          "EVENT_TIME": "3/5/2020 1:27:24 AM",
+          "LINE": "GOLD",
+          "NEXT_ARR": "01:46:18 AM",
+          "STATION": "DORAVILLE STATION",
+          "TRAIN_ID": "305326",
+          "WAITING_SECONDS": "1123",
+          "WAITING_TIME": "18 min"
+        },
+        {
+          "DESTINATION": "Hamilton E Holmes",
+          "DIRECTION": "W",
+          "EVENT_TIME": "3/5/2020 1:27:19 AM",
+          "LINE": "BLUE",
+          "NEXT_ARR": "01:47:05 AM",
+          "STATION": "FIVE POINTS STATION",
+          "TRAIN_ID": "107206",
+          "WAITING_SECONDS": "1170",
+          "WAITING_TIME": "19 min"
+        },
+        {
+          "DESTINATION": "Lindbergh",
+          "DIRECTION": "S",
+          "EVENT_TIME": "3/5/2020 1:27:17 AM",
+          "LINE": "RED",
+          "NEXT_ARR": "01:48:25 AM",
+          "STATION": "WEST END STATION",
+          "TRAIN_ID": "408366",
+          "WAITING_SECONDS": "1250",
+          "WAITING_TIME": "20 min"
+        },
+        {
+          "DESTINATION": "Hamilton E Holmes",
+          "DIRECTION": "W",
+          "EVENT_TIME": "3/5/2020 1:27:19 AM",
+          "LINE": "BLUE",
+          "NEXT_ARR": "01:48:36 AM",
+          "STATION": "OMNI DOME STATION",
+          "TRAIN_ID": "107206",
+          "WAITING_SECONDS": "1261",
+          "WAITING_TIME": "20 min"
+        },
+        {
+          "DESTINATION": "Hamilton E Holmes",
+          "DIRECTION": "W",
+          "EVENT_TIME": "3/5/2020 1:27:19 AM",
+          "LINE": "BLUE",
+          "NEXT_ARR": "01:49:47 AM",
+          "STATION": "VINE CITY STATION",
+          "TRAIN_ID": "107206",
+          "WAITING_SECONDS": "1332",
+          "WAITING_TIME": "21 min"
+        },
+        {
+          "DESTINATION": "Lindbergh",
+          "DIRECTION": "S",
+          "EVENT_TIME": "3/5/2020 1:27:17 AM",
+          "LINE": "RED",
+          "NEXT_ARR": "01:50:58 AM",
+          "STATION": "OAKLAND CITY STATION",
+          "TRAIN_ID": "408366",
+          "WAITING_SECONDS": "1403",
+          "WAITING_TIME": "22 min"
+        },
+        {
+          "DESTINATION": "Hamilton E Holmes",
+          "DIRECTION": "W",
+          "EVENT_TIME": "3/5/2020 1:27:19 AM",
+          "LINE": "BLUE",
+          "NEXT_ARR": "01:51:17 AM",
+          "STATION": "ASHBY STATION",
+          "TRAIN_ID": "107206",
+          "WAITING_SECONDS": "1422",
+          "WAITING_TIME": "23 min"
+        },
+        {
+          "DESTINATION": "Lindbergh",
+          "DIRECTION": "S",
+          "EVENT_TIME": "3/5/2020 1:27:17 AM",
+          "LINE": "RED",
+          "NEXT_ARR": "01:53:11 AM",
+          "STATION": "LAKEWOOD STATION",
+          "TRAIN_ID": "408366",
+          "WAITING_SECONDS": "1536",
+          "WAITING_TIME": "25 min"
+        },
+        {
+          "DESTINATION": "Hamilton E Holmes",
+          "DIRECTION": "W",
+          "EVENT_TIME": "3/5/2020 1:27:19 AM",
+          "LINE": "BLUE",
+          "NEXT_ARR": "01:53:25 AM",
+          "STATION": "WEST LAKE STATION",
+          "TRAIN_ID": "107206",
+          "WAITING_SECONDS": "1550",
+          "WAITING_TIME": "25 min"
+        },
+        {
+          "DESTINATION": "Lindbergh",
+          "DIRECTION": "S",
+          "EVENT_TIME": "3/5/2020 1:27:17 AM",
+          "LINE": "RED",
+          "NEXT_ARR": "01:55:59 AM",
+          "STATION": "EAST POINT STATION",
+          "TRAIN_ID": "408366",
+          "WAITING_SECONDS": "1704",
+          "WAITING_TIME": "27 min"
+        },
+        {
+          "DESTINATION": "Hamilton E Holmes",
+          "DIRECTION": "W",
+          "EVENT_TIME": "3/5/2020 1:27:19 AM",
+          "LINE": "BLUE",
+          "NEXT_ARR": "01:56:00 AM",
+          "STATION": "HAMILTON E HOLMES STATION",
+          "TRAIN_ID": "107206",
+          "WAITING_SECONDS": "1705",
+          "WAITING_TIME": "27 min"
+        }
+      ],
+      "config": {
+        "url": "http://developer.itsmarta.com/RealtimeTrain/RestServiceNextTrain/GetRealtimeArrivals",
+        "method": "get",
+        "headers": {
+          "Accept": "application/json, text/plain, */*",
+          "User-Agent": "axios-vcr"
+        }
+      }
+    }
+  }
+}
