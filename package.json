@@ -24,7 +24,7 @@
       "source-map-support/register"
     ],
     "exclude": [
-      "./test/browser/**"
+      "test/browser/**"
     ]
   },
   "nyc": {
